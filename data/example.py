@@ -1,5 +1,6 @@
 import sys
 import random
+import time
 
 sys.setrecursionlimit(2000000)
 
@@ -153,10 +154,15 @@ def main():
         print("Tablica przed sortowaniem:")
         print(data)
         
+        start_time = time.perf_counter()
         sorted_data = sort_using_algorithm(data, algo_num)
+        end_time = time.perf_counter()
         
         print("Tablica po sortowaniu:")
         print(sorted_data)
+
+        duration = end_time - start_time
+        print(f"Czas wykonania: {duration:.10f} s")
 
 if __name__ == "__main__":
     main()
