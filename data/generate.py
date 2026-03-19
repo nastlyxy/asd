@@ -1,5 +1,6 @@
 #Remember to pip3 install numpy
 import numpy as np
+import os
 
 def generate_random_array(size):
     return np.random.randint(0, 10000, size, dtype=int)
@@ -20,8 +21,9 @@ def generate_a_shaped_array(size):
     return np.concatenate((increasing_part, decreasing_part))
 
 # Set the sizes for the arrays
-sizes = [2**x for x in range(2, 20)]
-
+# sizes = [2**x for x in range(2, 20)]
+sizes = [100, 500, 1000, 2000, 3000, 4000, 5000, 6000, 8000, 10000]
+os.makedirs('benchmark', exist_ok=True)
 for size in sizes:
     # Generate arrays
     random_array = generate_random_array(size)
