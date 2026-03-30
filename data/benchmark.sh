@@ -14,10 +14,10 @@ benchmark() {
     runcurrent=$runexample
 
     echo "Benchmarking Algorithm $algorithm with input $input_file"
-    result=$(/usr/bin/time -f "%e" ${runcurrent} --algorithm $algorithm < $input_file 2>&1 >/dev/null)
-    echo "Result $result"
-    time=$(echo $result | head -1)  # Extract real time from the time command output
-    echo $time
+    time=$(${runcurrent} --algorithm $algorithm < $input_file)
+    
+    echo "Time: $time"
+    
     size=$(head -n 1 $input_file)
     # Append results to CSV file
     echo "$algorithm_name,$input_type,$size,$time" >> benchmark_results.csv

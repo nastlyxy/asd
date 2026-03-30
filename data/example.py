@@ -116,8 +116,11 @@ def main():
         except EOFError:
             sys.exit(1)
         
-        sorted_data = sort_using_algorithm(data, algorithm_number)
-        print("Sorted data:", sorted_data[0:10])
+        start_time = time.perf_counter()
+        sort_using_algorithm(data, algorithm_number)
+        end_time = time.perf_counter()
+        
+        print(f"{end_time - start_time:.10f}")
     else:
         print("1. Insertion sort")
         print("2. Shell sort")
